@@ -1,0 +1,16 @@
+[{
+  "unit_name" : "m",
+  "coefficient" : 1000
+},
+  {
+    "unit_name" : "cm",
+    "coefficient" : 10
+  },
+  {
+    "unit_name" : "in",
+    "coefficient" : 25.4
+  },
+  {
+    "unit_name" : "ft",
+    "coefficient" : 304.8
+  }]

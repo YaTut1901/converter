@@ -1,0 +1,12 @@
+[{
+  "unit_name" : "mm",
+  "coefficient" : 1
+},
+  {
+    "unit_name" : "yd",
+    "coefficient" : 1000000
+  },
+  {
+    "unit_name" : "km",
+    "coefficient" : 25.4
+  }]
