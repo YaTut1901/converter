@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
-public class Request {
+public class RequestDto {
     @JsonProperty("convert_to")
     private String convertTo;
     private String unit;
     private double value;
 
-    public Request() {
+    public RequestDto() {
     }
 
     @JsonProperty("distance")

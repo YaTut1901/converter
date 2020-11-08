@@ -1,10 +1,10 @@
 package converter.test.task.model;
 
-public class Response {
+public class ResponseDto {
     private Double value;
     private String unit;
 
-    public Response(Double value, String unit) {
+    public ResponseDto(Double value, String unit) {
         this.value = value;
         this.unit = unit;
     }

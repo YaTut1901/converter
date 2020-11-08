@@ -1,9 +1,8 @@
 package converter.test.task;
 
-import java.util.HashMap;
 import java.util.Scanner;
 import converter.test.task.service.CommandExecutor;
-import converter.test.task.service.InputParser;
+import converter.test.task.service.ApplicationContext;
 
 public class Main {
     public static final String INTRO_MESSAGE = "------------------------------------------------------------WELCOME TO CONVERTER-------------------------------------------------------------" + "\n"
@@ -15,10 +14,14 @@ public class Main {
             + "---                                                      quit program - quit program                                                      ---" + "\n"
             + "---------------------------------------------------------------------------------------------------------------------------------------------" + "\n"
             + "---------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
-    private static final CommandExecutor commandExecutor = new CommandExecutor(new HashMap<>(), new InputParser());
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        System.out.println("Enter path to default units and path to response file for converter initialization:");
+        while(!ApplicationContext.initPostProcessor(scanner.nextLine())) {
+            System.out.println("No such way exist! Enter another path");
+        }
+        CommandExecutor commandExecutor = ApplicationContext.getCommandExecutor();
         System.out.println(INTRO_MESSAGE + "\n" + "\n" + "Available units" + "\n" + commandExecutor.execute("available units"));
         while(true) {
             String input = scanner.nextLine();

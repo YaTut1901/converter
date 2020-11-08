@@ -2,20 +2,14 @@ package converter.test.task.service;
 
 import converter.test.task.exception.WrongInputFormatException;
 
-import java.io.IOException;
-import java.util.Map;
-
 public class CommandExecutor {
     private final InputParser inputParser;
-    private Converter converter;
+    private final Converter converter;
 
-    public CommandExecutor(Map<String, Double> storage, InputParser inputParser) {
-        try {
-            converter = Converter.of(storage);
-        } catch (IOException e) {
-            System.out.println("No such way exist");
-        }
+    public CommandExecutor(InputParser inputParser,
+                           Converter converter) {
         this.inputParser = inputParser;
+        this.converter = converter;
     }
 
     public String execute(String input) {
@@ -34,6 +28,8 @@ public class CommandExecutor {
                 return converter.convert(command[1]);
             case "available":
                 return converter.getAvailableUnits();
+            case "quit":
+                System.exit(0);
             default:
                 return "No such command available";
         }
